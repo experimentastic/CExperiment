@@ -1,0 +1,160 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}Individual Task{% endblock %}
+
+{% block content %}
+
+<body >
+
+<script type="text/javascript">
+
+    function sumValues()
+       {
+
+       if(document.getElementById("item_1").value > 1 || document.getElementById("item_1").value < 0 ) {document.getElementById("1r").value="error";} else {document.getElementById("1r").value=document.getElementById("item_1").value * {{Constants.item_1_value}};}
+       if(document.getElementById("item_2").value > 1 || document.getElementById("item_2").value < 0 ) {document.getElementById("2r").value="error";} else {document.getElementById("2r").value=document.getElementById("item_2").value * {{Constants.item_2_value}};}
+       if(document.getElementById("item_3").value > 1 || document.getElementById("item_3").value < 0 ) {document.getElementById("3r").value="error";} else {document.getElementById("3r").value=document.getElementById("item_3").value * {{Constants.item_3_value}};}
+       if(document.getElementById("item_4").value > 1 || document.getElementById("item_4").value < 0 ) {document.getElementById("4r").value="error";} else {document.getElementById("4r").value=document.getElementById("item_4").value * {{Constants.item_4_value}};}
+      if(document.getElementById("item_5").value > 1 || document.getElementById("item_5").value < 0 ) {document.getElementById("5r").value="error";} else  {document.getElementById("5r").value=document.getElementById("item_5").value * {{Constants.item_5_value}};}
+      if(document.getElementById("item_6").value > 1 || document.getElementById("item_6").value < 0 ) {document.getElementById("6r").value="error";} else {document.getElementById("6r").value=document.getElementById("item_6").value * {{Constants.item_6_value}};}
+      if(document.getElementById("item_7").value > 1 || document.getElementById("item_7").value < 0 ) {document.getElementById("7r").value="error";} else {document.getElementById("7r").value=document.getElementById("item_7").value * {{Constants.item_7_value}};}
+      if(document.getElementById("item_8").value > 1 || document.getElementById("item_8").value < 0 ) {document.getElementById("8r").value="error";} else {document.getElementById("8r").value=document.getElementById("item_8").value * {{Constants.item_8_value}};}
+      if(document.getElementById("item_9").value > 1 || document.getElementById("item_9").value < 0 ) {document.getElementById("9r").value="error";} else  {document.getElementById("9r").value=document.getElementById("item_9").value * {{Constants.item_9_value}};}
+      if(document.getElementById("item_10").value > 1 || document.getElementById("item_10").value < 0 ) {document.getElementById("10r").value="error";} else {document.getElementById("10r").value=document.getElementById("item_10").value * {{Constants.item_10_value}};}
+
+
+
+
+       if({{Constants.item_1_weight}}*document.getElementById("item_1").value + {{Constants.item_2_weight}}*document.getElementById("item_2").value +{{Constants.item_3_weight}}*document.getElementById("item_3").value +{{Constants.item_4_weight}}*document.getElementById("item_4").value +{{Constants.item_5_weight}}*document.getElementById("item_5").value +{{Constants.item_6_weight}}*document.getElementById("item_6").value +{{Constants.item_7_weight}}*document.getElementById("item_7").value +{{Constants.item_8_weight}}*document.getElementById("item_8").value +{{Constants.item_9_weight}}*document.getElementById("item_9").value + {{Constants.item_10_weight}}*document.getElementById("item_10").value > {{Constants.T_Weight}}) {document.getElementById("Total_Value").value="Overweight";} else if  (document.getElementById("item_1").value > 1|| document.getElementById("item_1").value < 0 ||document.getElementById("item_2").value > 1|| document.getElementById("item_2").value < 0 ||document.getElementById("item_3").value > 1|| document.getElementById("item_3").value < 0 ||document.getElementById("item_4").value > 1|| document.getElementById("item_4").value < 0 ||document.getElementById("item_5").value > 1|| document.getElementById("item_5").value < 0 ||document.getElementById("item_6").value > 1|| document.getElementById("item_6").value < 0 ||document.getElementById("item_7").value > 1|| document.getElementById("item_7").value < 0 ||document.getElementById("item_8").value > 1|| document.getElementById("item_8").value < 0 ||document.getElementById("item_9").value > 1|| document.getElementById("item_9").value < 0 ||document.getElementById("item_10").value > 1|| document.getElementById("item_10").value < 0 ) {document.getElementById("Total_Value").value="Amount has to be either 0 or 1";} else {document.getElementById("Total_Value").value = (document.getElementById("item_1").value * {{Constants.item_1_value}}) + (document.getElementById("item_2").value * {{Constants.item_2_value}})+ (document.getElementById("item_3").value * {{Constants.item_3_value}})+ (document.getElementById("item_4").value * {{Constants.item_4_value}}) + (document.getElementById("item_5").value * {{Constants.item_5_value}}+document.getElementById("item_6").value * {{Constants.item_6_value}}) + (document.getElementById("item_7").value * {{Constants.item_7_value}})+ (document.getElementById("item_8").value * {{Constants.item_8_value}})+ (document.getElementById("item_9").value * {{Constants.item_9_value}}) + (document.getElementById("item_10").value * {{Constants.item_10_value}})}
+
+       }
+
+
+
+
+</script>
+</body>
+
+
+
+
+
+<div class="card bg-light description">
+    <div class="card-body">
+
+    </div>
+</div>
+
+<output id="target_weight"> Target Weight: {{Constants.T_Weight}} </output>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Weight</th>
+        <th scope="col">Value</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Total Value</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <th scope="row">Item 1</th>
+      <td>{{Constants.item_1_weight}} </td>
+   <td> {{Constants.item_1_value}} </td>
+        <td><input id="item_1" type="number"></td>
+<td><output id="1r"></output></td>
+
+    </tr>
+    <tr>
+        <th scope="row">Item 2 </th>
+       <td> {{Constants.item_2_weight}}</td>
+   <td> {{Constants.item_2_value}} </td>
+        <td><input id="item_2" type="number"></td>
+<td><output id="2r"></output></td>
+
+
+    </tr>
+    <tr>
+      <th scope="row">Item 3 </th>
+     <td> {{Constants.item_3_weight}}</td>
+   <td> {{Constants.item_3_value}} </td>
+        <td><input id="item_3" type="number"></td>
+<td><output id="3r"></output></td>
+
+    </tr>
+  <tr>
+      <th scope="row">Item 4</th>
+       <td>{{Constants.item_4_weight}} </td>
+   <td> {{Constants.item_4_value}} </td>
+        <td><input id="item_4" type="number"></td>
+<td><output id="4r"></output></td>
+
+    </tr>
+  <tr>
+      <th scope="row">Item 5</th>
+     <td> {{Constants.item_5_weight}}</td>
+   <td> {{Constants.item_5_value}} </td>
+        <td><input id="item_5" type="number"></td>
+<td><output id="5r"></output></td>
+  </tr>
+
+   <tr>
+      <th scope="row">Item 6</th>
+     <td> {{Constants.item_6_weight}}</td>
+   <td> {{Constants.item_6_value}} </td>
+        <td><input id="item_6" type="number"></td>
+<td><output id="6r"></output></td>
+  </tr>
+
+   <tr>
+      <th scope="row">Item 7</th>
+     <td> {{Constants.item_7_weight}}</td>
+   <td> {{Constants.item_7_value}} </td>
+        <td><input id="item_7" type="number"></td>
+<td><output id="7r"></output></td>
+  </tr>
+
+ <tr>
+      <th scope="row">Item 8</th>
+     <td> {{Constants.item_8_weight}}</td>
+   <td> {{Constants.item_8_value}} </td>
+        <td><input id="item_8" type="number"></td>
+<td><output id="8r"></output></td>
+  </tr>
+
+ <tr>
+      <th scope="row">Item 9</th>
+     <td> {{Constants.item_9_weight}}</td>
+   <td> {{Constants.item_9_value}} </td>
+        <td><input id="item_9" type="number"></td>
+<td><output id="9r"></output></td>
+  </tr>
+
+   <tr>
+      <th scope="row">Item 10</th>
+     <td> {{Constants.item_10_weight}}</td>
+   <td> {{Constants.item_10_value}} </td>
+        <td><input id="item_10" type="number"></td>
+<td><output id="10r"></output></td>
+  </tr>
+
+
+
+  </tbody>
+</table>
+
+Total Value: <output id="Total_Value"></output>
+<br>
+<br>
+<button id = "Calculate" type="Button" onClick="sumValues();">Calculate </button>
+
+
+
+
+<button type = "submit" id="Submit" onClick="sumValues();" style="float:right;background-color:#f44336;color:white;"><strong>Submit</strong></button>
+
+{% endblock %}
